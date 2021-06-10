@@ -1,7 +1,7 @@
 import { Column, Entity, JoinTable, ManyToMany } from 'typeorm';
-import { BaseEntity } from '../../common/entity/base.entity';
-import { BookType } from '../book.enum';
-import { BookStore } from '../../book-store/domain/book-store';
+import { BaseEntity } from '../common/entity/base.entity';
+import { BookType } from './book.enum';
+import { BookStore } from '../book-store/domain/book-store';
 
 @Entity()
 export class Book extends BaseEntity{

@@ -1,22 +1,21 @@
-import { Column, Entity } from 'typeorm';
-import { BaseEntity } from '../common/entity/base.entity';
-import { BookType } from './book.enum';
+import { Column, Entity, ManyToMany } from 'typeorm';
+import { BaseEntity } from '../../common/entity/base.entity';
+import { Address } from './address';
+import { Book } from '../../book/book';
+import { Field, ObjectType } from '@nestjs/graphql';
 
+@ObjectType()
 @Entity()
-export class Book extends BaseEntity{
+export class BookStore extends BaseEntity{
   @Column()
+  @Field()
   name: string;
 
-  @Column({type:'enum', enum: BookType})
-  type: BookType;
+  @Column(() => Address)
+  @Field(() => Address)
+  address:Address;
 
-  @Column()
-  quantity: number;
-
-  @Column()
-  author: string;
-
-  @Column()
-  publisher: string;
+  @ManyToMany(() => Book, book => book.bookStores)
+  books: Book[];
 }
 
