@@ -19,13 +19,25 @@ export class CreateBookStoreInput {
 }
 
 @InputType()
+export class UpdateBookStoreInput {
+  @Field(() => ID)
+  id: number;
+
+  @Field({ nullable: true })
+  name?: string;
+
+  @Field(() => AddressInput, { nullable: true })
+  address: AddressInput;
+}
+
+@InputType()
 export class BookStoreArgs {
   @Field(() => ID, { nullable: true })
   id: number;
 
   @Field({ nullable: true })
-  name: string;
+  name?: string;
 
   @Field(() => AddressInput, { nullable: true })
-  address: AddressInput;
+  address?: AddressInput;
 }
