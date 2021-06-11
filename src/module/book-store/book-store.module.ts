@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { bookStoreProvider } from './book-store.provider';
 import { BookStoreService } from './book-store.service';
 import { BookStoreResolver } from './book-store.resolver';
-import { DatabaseModule } from '../../config/database/database.module';
 
 @Module({
   providers: [

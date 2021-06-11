@@ -1,6 +1,4 @@
-import { Address } from './domain/address';
 import { Field, ID, InputType } from '@nestjs/graphql';
-import { Column } from 'typeorm';
 
 @InputType()
 export class AddressInput {
